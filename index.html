@@ -56,11 +56,10 @@
                 <tbody>
                   {this.state.data ? 
                     this.state.data.map((log) => {
-                      console.log('log', log.id)
-                      // <tr>
-                      //   <td>{log.created}</td>
-                      //   <td>{log.subject}</td>  
-                      // </tr>
+                      <tr>
+                        <td>{log.created}</td>
+                        <td>{log.subject}</td>  
+                      </tr>
                     }) : null
                   }
                 </tbody>
