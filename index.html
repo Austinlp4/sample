@@ -25,10 +25,6 @@
         fetch('./SKUNinja-sample-logs.json')
           .then(res => res.json())
           .then(data => {
-            // const logs = []
-            // data.map(log => {
-            //   logs.push(log)
-            // })
             this.setState({
               data
             })
@@ -48,7 +44,6 @@
       }
 
       render() {
-        console.log(this.state.data)
           return (
             <div>
               <h1>Event Log</h1>
