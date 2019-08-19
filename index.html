@@ -15,7 +15,7 @@
   <script src="SKUNinja-sample-logs.json"></script>
   <script type="text/babel">
   class EventLogViewer extends React.Component {
-      state = {data:[]}
+      state = {logs:[]}
       componentDidMount(){
         fetch('./SKUNinja-sample-logs.json')
           .then(res => res.json())
@@ -25,7 +25,7 @@
               logs.push(log)
             })
             this.setState({
-              data: logs
+              logs
             })
           })
           console.log(this.state.data)
