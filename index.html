@@ -18,7 +18,7 @@
       constructor(props){
         super(props);
         this.state={
-          data: null,
+          list: null,
           loading: true
         }
       }
@@ -37,7 +37,7 @@
             })
             console.log(list[0])
             this.setState({
-              data,
+              list,
               loading: false
             })
           })
@@ -70,7 +70,7 @@
               <table>
                 <tbody>
                   {
-                    Object.values(this.state.data).map((log) => {
+                    Object.values(this.state.list).map((log) => {
                       <tr>
                         <td>{log.created}</td>
                         <td>{log.subject}</td>  
