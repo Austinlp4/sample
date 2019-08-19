@@ -33,7 +33,7 @@
             let logs = Object.values(data)
             let list = []
             logs.map(child => {
-              list.push(Object.values(child))
+              list.push(child.values()))
             })
             console.log(list)
             this.setState({
