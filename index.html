@@ -33,7 +33,7 @@
 
       renderData(){
         if(this.state.data){
-        return this.state.data.entries().map((index, log) => {
+        return this.state.data.map((index, log) => {
           const { id, created, user_id, ip, type } = log
           return (
             <tr>
