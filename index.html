@@ -31,21 +31,21 @@
           })
       }
 
-      renderData(){
-        if(this.state.data){
-        return this.state.data.map((index, log) => {
-          const { id, created, user_id, ip, type } = log
-          return (
-            <tr>
-              <td>{created}</td>
-              <td>{subject}</td>  
-            </tr>
-          )
-        })
-      } else {
-        null
-      }
-      }
+      // renderData(){
+      //   if(this.state.data){
+      //   return this.state.data.map((index, log) => {
+      //     const { id, created, user_id, ip, type } = log
+      //     return (
+      //       <tr>
+      //         <td>{created}</td>
+      //         <td>{subject}</td>  
+      //       </tr>
+      //     )
+      //   })
+      // } else {
+      //   null
+      // }
+      // }
 
       render() {
         console.log(this.state.data)
@@ -54,7 +54,14 @@
               <h1>Event Log</h1>
               <table>
                 <tbody>
-                  {this.renderData()}
+                  {this.state.data ? 
+                    this.state.data.map((index, log) => {
+                      <tr>
+                        <td>{log.created}</td>
+                        <td>{log.subject}</td>  
+                      </tr>
+                    } : null
+                  }
                 </tbody>
               </table>
             </div>
