@@ -15,7 +15,12 @@
   <script src="SKUNinja-sample-logs.json"></script>
   <script type="text/babel">
   class EventLogViewer extends React.Component {
-      state = {logs:[]}
+      constructor(props){
+        super(props);
+        this.state={
+          logs: []
+        }
+      }
       componentDidMount(){
         fetch('./SKUNinja-sample-logs.json')
           .then(res => res.json())
