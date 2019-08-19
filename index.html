@@ -31,7 +31,11 @@
           .then(res => res.json())
           .then(data => {
             let logs = Object.values(data)
-            console.log('data', Object.values(logs))
+            let list = []
+            logs.map(child => {
+              list.push(Object.values(child))
+            })
+            console.log(list)
             this.setState({
               data,
               loading: false
