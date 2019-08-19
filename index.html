@@ -64,7 +64,7 @@
               <table>
                 <tbody>
                   {
-                    this.state.data.map((log) => {
+                    Object.values(this.state.data).map((log) => {
                       <tr>
                         <td>{log.created}</td>
                         <td>{log.subject}</td>  
