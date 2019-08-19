@@ -30,16 +30,13 @@
         fetch('./SKUNinja-sample-logs.json')
           .then(res => res.json())
           .then(data => {
-            let logs = Object.values(data)
-            let list = []
-            logs.map(child => {
-              list.push(child)
+            Object.keys(data).forEach(key => {
+              console.log('data', data[key])
             })
-            console.log(list[0])
-            this.setState({
-              list,
-              loading: false
-            })
+            // this.setState({
+            //   list,
+            //   loading: false
+            // })
           })
       }
 
