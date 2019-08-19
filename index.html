@@ -18,22 +18,22 @@
       constructor(props){
         super(props);
         this.state={
-          logs: []
+          data: null
         }
       }
       componentDidMount(){
         fetch('./SKUNinja-sample-logs.json')
           .then(res => res.json())
           .then(data => {
-            const logs = []
-            data.map(log => {
-              logs.push(log)
-            })
+            // const logs = []
+            // data.map(log => {
+            //   logs.push(log)
+            // })
             this.setState({
-              logs
+              data
             })
           })
-          console.log(this.state.logs)
+          console.log(this.state.data)
       }
 
       renderData(){
