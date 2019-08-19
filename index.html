@@ -30,8 +30,8 @@
         fetch('./SKUNinja-sample-logs.json')
           .then(res => res.json())
           .then(data => {
-            let logs = Object.values(data.value())
-            console.log('data', logs)
+            let logs = Object.values(data)
+            console.log('data', Object.values(logs))
             this.setState({
               data,
               loading: false
