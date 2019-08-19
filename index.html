@@ -18,7 +18,7 @@
       constructor(props){
         super(props);
         this.state={
-          list: null,
+          logs: null,
           loading: true
         }
       }
@@ -30,13 +30,14 @@
         fetch('./SKUNinja-sample-logs.json')
           .then(res => res.json())
           .then(data => {
+            let logs = []
             Object.keys(data).forEach(key => {
-              console.log('data', data[key])
+              logs.push(data[key])
             })
-            // this.setState({
-            //   list,
-            //   loading: false
-            // })
+            this.setState({
+              logs,
+              loading: false
+            })
           })
       }
 
@@ -67,7 +68,7 @@
               <table>
                 <tbody>
                   {
-                    Object.values(this.state.list).map((log) => {
+                    Object.values(this.state.logs).map((log) => {
                       <tr>
                         <td>{log.created}</td>
                         <td>{log.subject}</td>  
