@@ -41,21 +41,18 @@
           })
       }
 
-      // renderData(){
-      //   if(this.state.data){
-      //   return this.state.data.map((index, log) => {
-      //     const { id, created, user_id, ip, type } = log
-      //     return (
-      //       <tr>
-      //         <td>{created}</td>
-      //         <td>{subject}</td>  
-      //       </tr>
-      //     )
-      //   })
-      // } else {
-      //   null
-      // }
-      // }
+      renderData(){
+        return this.state.logs.map((log, index) => {
+          const { id, created, user_id, ip, type } = log
+          return (
+            <tr>
+              <td>{created}</td>
+              <td>{subject}</td>  
+            </tr>
+          )
+        })
+      } 
+      }
 
       render() {
         if(this.state.loading){
@@ -70,12 +67,7 @@
               <table>
                 <tbody>
                   {
-                    this.state.logs.map((log, i) => {
-                      <tr>
-                        <td>{log.created}</td>
-                        <td>{log.subject}</td>  
-                      </tr>
-                    }) 
+                    this.renderData()
                   }
                 </tbody>
               </table>
