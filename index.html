@@ -70,7 +70,7 @@
             color = 'table-success'
           }
           return (
-            <tr className={`${color}`} data-toggle='modal' data-target={index} key={index} onClick={(e) => this.showModal(e)}>
+            <tr className={`${color}`} data-toggle='modal' data-target={index} key={index} onClick={(e) => this.showModal(e)} style={{ cursor: 'pointer' }}>
               <td>{date}</td>
               <td>{time}</td>
               <td>{subject}</td>  
@@ -157,7 +157,7 @@
           </div> : null
               }
               
-              <div className="nav">
+              <div className="nav shadow-sm">
                 <div className="content-container">
                   <h1 >Event Log</h1>
                   <div className="dropdown">
@@ -175,7 +175,7 @@
               </div>
 
 
-              <table className='table table-hover' style={{ marginTop: '60px', maxWidth: '1000px' }}>
+              <table className='table table-hover rounded' style={{ marginTop: '60px', maxWidth: '1000px' }}>
                 <thead>
                   <tr>
                     <th scope="col">Date</th>
