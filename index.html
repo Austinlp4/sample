@@ -24,6 +24,8 @@
           loading: true, //initially true until data is fully loaded in
           showModal: false, // for individual modals to display bodies
           index: '', // also used for modals
+          filtered: [],
+          type: 'default'
         }
       }
       componentDidMount(){
@@ -43,7 +45,8 @@
             // set our new array to state along with a loading toggle
             this.setState({
               logs,
-              loading: false
+              loading: false,
+              type: 'default'
             })
           })
       }
@@ -52,6 +55,7 @@
         // here we are mapping through our logs we set into state, deconstructing the object, 
         // splitting date and time apart so that we can use them to filter later on, setting the background color based on type and creating a row
         // for each log entry
+        if(this.state.type === 'default'){
         return this.state.logs.map((log, index) => {
           const { id, created, user_id, ip, type, subject, body } = log
           let dateandtime = created.split(' ');
@@ -73,6 +77,29 @@
             </tr>
           )
         })
+        } else {
+          return this.state.filtered.map((log, index) => {
+          const { id, created, user_id, ip, type, subject, body } = log
+          let dateandtime = created.split(' ');
+          let date = dateandtime[0];
+          let time = dateandtime[1];
+          let color = '';
+          if(type === '3'){
+            color = 'table-danger'
+          } else if(type === '2') {
+            color = 'table-warning'
+          } else {
+            color = 'table-success'
+          }
+          return (
+            <tr className={`${color}`} data-toggle='modal' data-target={index} key={index} onClick={(e) => this.showModal(e)}>
+              <td>{date}</td>
+              <td>{time}</td>
+              <td>{subject}</td>  
+            </tr>
+          )
+        })
+        }
       } 
 
     // made a show and close modal method. If this was a bigger application I would just separate the modal into its own component for reusability
@@ -94,28 +121,19 @@
       };
 
       filter = (type) => {
-        let entries = []
-        fetch('./SKUNinja-sample-logs.json')
-          .then(res => res.json())
-          .then(data => {
-            Object.keys(data).forEach(key => {
-              entries.push(data[key])
-            })
-          })
-          console.log('entries', entries)
-        let logs = entries.filter(log => log.type === `${type}`);
-        console.log('logs', logs)
+        let data = [...this.state.logs];
+        let logs = data.filter(log => log.type === `${type}`);
         this.setState({
-          logs: logs
+          filtered: logs,
+          type: 'filtered'
         })
       }
-      
       
 
       render() {
         // if we haven't finished fetching the data we can choose to have a loading animation here if wanted
         if(this.state.loading){
-          return <div>...loading</div>
+          return <div></div>
         }
         return (
           // here is our modal, again, would probably be more appropriate to separated into its own component
