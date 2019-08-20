@@ -78,6 +78,7 @@
           )
         })
         } else {
+          // conditional rendering to support our filter function. 
           return this.state.filtered.map((log, index) => {
           const { id, created, user_id, ip, type, subject, body } = log
           let dateandtime = created.split(' ');
@@ -159,7 +160,7 @@
               
               <div className="nav shadow-sm">
                 <div className="content-container">
-                  <h1 >Event Log</h1>
+                  <h1 style={{ fontWeight: '300' }}>Event Log</h1>
                   <div className="dropdown">
                     <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Filter
