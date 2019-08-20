@@ -94,10 +94,10 @@
       };
 
       filter = (type) => {
+        let entries = []
         fetch('./SKUNinja-sample-logs.json')
           .then(res => res.json())
           .then(data => {
-            let entries = []
             Object.keys(data).forEach(key => {
               entries.push(data[key])
             })
