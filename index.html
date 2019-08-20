@@ -58,7 +58,7 @@
             color = 'bg-success'
           }
           return (
-            <tr className={`${color} container-fluid`} data-toggle='modal' data-target={index} key={index} onClick={(e) => this.showModal(e)}>
+            <tr className={`${color}`} data-toggle='modal' data-target={index} key={index} onClick={(e) => this.showModal(e)}>
               <th scope="row"></th>
               <td>{created}</td>
               <td>{subject}</td>  
@@ -90,7 +90,7 @@
           return <div></div>
         }
         return (
-            <div>
+            <div className='container-fluid'>
               {this.state.showModal ? 
                 <div id={`${this.state.index}`} className="modalContainer" role="dialog" data-type='modal-container' onClick={this.closeModal}>
               <div className="modal-dialog">
