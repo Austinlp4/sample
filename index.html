@@ -54,6 +54,7 @@
             color = 'bg-success'
           }
           return (
+            <div>
             <tr className={`${color} container-fluid`} data-toggle='modal' data-target={`#${index}`} key={index}>
               <td>{created}</td>
               <td>{subject}</td>  
@@ -77,6 +78,7 @@
 
               </div>
             </div>
+          </div>
 
           )
         })
