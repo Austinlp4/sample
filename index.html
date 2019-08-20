@@ -57,7 +57,7 @@
             color = 'bg-success'
           }
           return (
-            <tr className={`${color} container-fluid`} data-toggle='modal' data-target={`#${index}`} key={index} onClick={(index, body) => this.showModal(e)}>
+            <tr className={`${color} container-fluid`} data-toggle='modal' data-target={`#${index}`} key={index} onClick={(e) => this.showModal(e)}>
               <td>{created}</td>
               <td>{subject}</td>  
             </tr>
