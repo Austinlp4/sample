@@ -101,7 +101,7 @@
         }
         return (
           // here is our modal, again, would probably be more appropriate to separated into its own component
-            <div className='container-fluid'>
+            <div className='container-fluid d-flex justify-content-center'>
               {this.state.showModal ? 
                 <div id={`${this.state.index}`} className="modalContainer" role="dialog" data-type='modal-container' onClick={this.closeModal}>
               <div className="modal-dialog modal-lg">
@@ -138,7 +138,7 @@
               </div>
 
 
-              <table className='table table-hover' style={{ marginTop: '60px' }}>
+              <table className='table table-hover' style={{ marginTop: '60px',  }}>
                 <thead>
                   <tr>
                     <th scope="col">Date</th>
