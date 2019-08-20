@@ -98,21 +98,22 @@
           .then(res => res.json())
           .then(data => {
             let entries = []
-            // we don't need the key for what we are doing since it is the same as the index in the array, so we only store the value
             Object.keys(data).forEach(key => {
               entries.push(data[key])
             })
+          })
         let logs = entries.filter(log => log.type === `${type}`);
         this.setState({
           logs: logs
         })
       }
       
+      
 
       render() {
         // if we haven't finished fetching the data we can choose to have a loading animation here if wanted
         if(this.state.loading){
-          return <div></div>
+          return <div>...loading</div>
         }
         return (
           // here is our modal, again, would probably be more appropriate to separated into its own component
