@@ -95,7 +95,7 @@
 
       filter = (type) => {
         let data = [...this.state.logs];
-        logs = data.filter(log => log.type === type);
+        let logs = data.filter(log => log.type === type);
         this.setState({
           logs: logs
         })
