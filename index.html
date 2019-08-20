@@ -54,11 +54,11 @@
           let time = dateandtime[1];
           let color = '';
           if(type === '3'){
-            color = 'bg-danger'
+            color = 'table-danger'
           } else if(type === '2') {
-            color = 'bg-warning'
+            color = 'table-warning'
           } else {
-            color = 'bg-success'
+            color = 'table-success'
           }
           return (
             <tr className={`${color}`} data-toggle='modal' data-target={index} key={index} onClick={(e) => this.showModal(e)}>
@@ -114,7 +114,7 @@
               }
               <h1>Event Log</h1>
 
-              <table className='table'>
+              <table className='table table-hover'>
                 <thead>
                   <tr>
                     <th scope="col">Date</th>
