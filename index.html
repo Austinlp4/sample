@@ -54,7 +54,7 @@
             color = 'bg-success'
           }
           return (
-            <tr className={`${color} container-fluid`} data-toggle='modal' data-target={`#${index}`} key={index} onClick={e => this.showModal(e)}>
+            <tr className={`${color} container-fluid`} data-toggle='modal' data-target={`#${index}`} key={index} onClick={() => this.showModal(index)}>
               <td>{created}</td>
               <td>{subject}</td>  
             </tr>
@@ -62,9 +62,26 @@
         })
       } 
 
-      showModal = (e) => {
-        e.preventDefault();
-        console.log('target', e.target)
+      showModal = (index) => {
+        return (
+          <div id={`${index}`} className="modal fade" role="dialog">
+              <div className="modal-dialog">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <button type="button" className="close" data-dismiss="modal">&times;</button>
+                    <h4 className="modal-title">Subject</h4>
+                  </div>
+                  <div className="modal-body">
+                    <p>{body}</p>
+                  </div>
+                  <div className="modal-footer">
+                    <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        )
       }
       
 
