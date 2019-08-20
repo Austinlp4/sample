@@ -104,6 +104,7 @@
           })
           console.log('entries', entries)
         let logs = entries.filter(log => log.type === `${type}`);
+        console.log('logs', logs)
         this.setState({
           logs: logs
         })
