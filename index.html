@@ -46,9 +46,9 @@
         return this.state.logs.map((log, index) => {
           const { id, created, user_id, ip, type, subject } = log
           let color = '';
-          if(type === 3){
+          if(type === '3'){
             color = 'bg-danger'
-          } else if(type === 2) {
+          } else if(type === '2') {
             color = 'bg-warning'
           } else {
             color = 'bg-success'
