@@ -92,6 +92,14 @@
           })
         }
       };
+
+      filter = (type) => {
+        let data = [...this.state.logs];
+        logs = data.filter(log => log.type === type);
+        this.setState({
+          logs: logs
+        })
+      }
       
 
       render() {
@@ -129,16 +137,17 @@
                       Filter
                     </button>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a className="dropdown-item" href="#">Success</a>
-                      <a className="dropdown-item" href="#">Warning</a>
-                      <a className="dropdown-item" href="#">Danger</a>
+                      <a className="dropdown-item" onclick={this.filter(1)}>Normal</a>
+                      <a className="dropdown-item" onclick={this.filter(2)}>Warning</a>
+                      <a className="dropdown-item" onclick={this.filter(3)}>Error</a>
+                      <a className="dropdown-item" onclick={this.loadData()}>Default</a>
                     </div>
                   </div>
                 </div>
               </div>
 
 
-              <table className='table table-hover' style={{ marginTop: '60px',  }}>
+              <table className='table table-hover' style={{ marginTop: '60px', maxWidth: '1000px' }}>
                 <thead>
                   <tr>
                     <th scope="col">Date</th>
