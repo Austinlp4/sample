@@ -20,11 +20,10 @@
       constructor(props){
         super(props);
         this.state={
-          logs: null,
-          loading: true, 
-          showModal: false,
-          index: '',
-          body: ''
+          logs: null, // data entries
+          loading: true, //initially true until data is fully loaded in
+          showModal: false, // for individual modals to display bodies
+          index: '', // also used for modals
         }
       }
       componentDidMount(){
@@ -32,13 +31,16 @@
       }
 
       loadData(){
+        // fetching data from json file
         fetch('./SKUNinja-sample-logs.json')
           .then(res => res.json())
           .then(data => {
             let logs = []
+            // we don't need the key for what we are doing since it is the same as the index in the array, so we only store the value
             Object.keys(data).forEach(key => {
               logs.push(data[key])
             })
+            // set our new array to state along with a loading toggle
             this.setState({
               logs,
               loading: false
@@ -47,6 +49,9 @@
       }
 
       renderData(){
+        // here we are mapping through our logs we set into state, deconstructing the object, 
+        // splitting date and time apart so that we can use them to filter later on, setting the background color based on type and creating a row
+        // for each log entry
         return this.state.logs.map((log, index) => {
           const { id, created, user_id, ip, type, subject, body } = log
           let dateandtime = created.split(' ');
@@ -70,6 +75,7 @@
         })
       } 
 
+    // made a show and close modal method. If this was a bigger application I would just separate the modal into its own component for reusability
     showModal = (e) => {
       e.preventDefault();
       console.log(e.currentTarget.getAttribute('data-target'))
@@ -89,10 +95,12 @@
       
 
       render() {
+        // if we haven't finished fetching the data we can choose to have a loading animation here if wanted
         if(this.state.loading){
           return <div></div>
         }
         return (
+          // here is our modal, again, would probably be more appropriate to separated into its own component
             <div className='container-fluid'>
               {this.state.showModal ? 
                 <div id={`${this.state.index}`} className="modalContainer" role="dialog" data-type='modal-container' onClick={this.closeModal}>
@@ -112,8 +120,8 @@
               </div>
           </div> : null
               }
+              
               <nav className="nav">Event Log</nav>
-
               <table className='table table-hover' style={{ marginTop: '60px' }}>
                 <thead>
                   <tr>
