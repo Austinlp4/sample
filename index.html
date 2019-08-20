@@ -102,6 +102,7 @@
               entries.push(data[key])
             })
           })
+          console.log('entries', entries)
         let logs = entries.filter(log => log.type === `${type}`);
         this.setState({
           logs: logs
