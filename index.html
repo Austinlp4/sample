@@ -61,7 +61,9 @@
         if(this.state.loading){
           return <div></div>
         }
-        console.log('logs', this.state.logs)
+        this.state.logs.map((log, i)=> {
+          console.log(log)
+        })
         return (
             <div>
               <h1>Event Log</h1>
