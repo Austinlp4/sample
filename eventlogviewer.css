@@ -9,3 +9,10 @@
     z-index: 1050;
     outline: 0;
 }
+
+.nav{
+    background-color: rgb(93, 94, 94);
+    color: white;
+    position: fixed;
+    
+}
