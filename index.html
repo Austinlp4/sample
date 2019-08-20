@@ -94,8 +94,15 @@
       };
 
       filter = (type) => {
-        let data = [...this.state.logs];
-        let logs = data.filter(log => log.type === `${type}`);
+        fetch('./SKUNinja-sample-logs.json')
+          .then(res => res.json())
+          .then(data => {
+            let entries = []
+            // we don't need the key for what we are doing since it is the same as the index in the array, so we only store the value
+            Object.keys(data).forEach(key => {
+              entries.push(data[key])
+            })
+        let logs = entries.filter(log => log.type === `${type}`);
         this.setState({
           logs: logs
         })
