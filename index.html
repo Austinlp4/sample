@@ -57,7 +57,7 @@
             color = 'bg-success'
           }
           return (
-            <tr className={`${color} container-fluid`} data-toggle='modal' data-target={`#${index}`} key={index} onClick={(index, body) => this.showModal(index, body)}>
+            <tr className={`${color} container-fluid`} data-toggle='modal' data-target={`#${index}`} key={index} onClick={(index, body) => this.showModal(e)}>
               <td>{created}</td>
               <td>{subject}</td>  
             </tr>
@@ -65,12 +65,14 @@
         })
       } 
 
-    showModal = (index, body) => {
-        this.setState({
-          showModal: !this.state.showModal,
-          index: index,
-          body: body
-        })
+    showModal = (e) => {
+      e.preventDefault();
+      console.log(e.target)
+        // this.setState({
+        //   showModal: !this.state.showModal,
+        //   index: index,
+        //   body: body
+        // })
       }
 
       // modal = (index, body) => {
