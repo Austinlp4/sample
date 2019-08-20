@@ -49,6 +49,9 @@
       renderData(){
         return this.state.logs.map((log, index) => {
           const { id, created, user_id, ip, type, subject, body } = log
+          let dateandtime = created.split(' ');
+          let date = dateandtime[0];
+          let time = dateandtime[1];
           let color = '';
           if(type === '3'){
             color = 'bg-danger'
@@ -59,7 +62,8 @@
           }
           return (
             <tr className={`${color}`} data-toggle='modal' data-target={index} key={index} onClick={(e) => this.showModal(e)}>
-              <td>{created}</td>
+              <td>{date}</td>
+              <td>{time}</td>
               <td>{subject}</td>  
             </tr>
           )
@@ -113,7 +117,8 @@
               <table className='table'>
                 <thead>
                   <tr>
-                    <th scope="col">Date/ Time</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
                     <th scope="col">Subject</th>
                   </tr>
                 </thead>
