@@ -57,7 +57,7 @@
             color = 'bg-success'
           }
           return (
-            <tr className={`${color} container-fluid`} data-toggle='modal' data-target={`#${index}`} key={index} onClick={(e) => this.showModal(e)}>
+            <tr className={`${color} container-fluid`} data-toggle='modal' data-target={index} key={index} onClick={(e) => this.showModal(e)}>
               <td>{created}</td>
               <td>{subject}</td>  
             </tr>
@@ -68,34 +68,11 @@
     showModal = (e) => {
       e.preventDefault();
       console.log(e.currentTarget.getAttribute('data-target'))
-        // this.setState({
-        //   showModal: !this.state.showModal,
-        //   index: index,
-        //   body: body
-        // })
+        this.setState({
+          showModal: !this.state.showModal,
+          index: e.currentTarget.getAttribute('data-target'),
+        })
       }
-
-      // modal = (index, body) => {
-      //   return (
-      //     <div id={`${index}`} className="modal fade" role="dialog">
-      //         <div className="modal-dialog">
-      //           <div className="modal-content">
-      //             <div className="modal-header">
-      //               <button type="button" className="close" data-dismiss="modal">&times;</button>
-      //               <h4 className="modal-title">Subject</h4>
-      //             </div>
-      //             <div className="modal-body">
-      //               <p>{body}</p>
-      //             </div>
-      //             <div className="modal-footer">
-      //               <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-      //             </div>
-      //           </div>
-
-      //         </div>
-      //     </div>
-      //   )
-      // }
       
 
       render() {
@@ -104,7 +81,7 @@
         }
         if(this.state.showModal){
           return (
-            <div id={`${this.state.index}`} className="modal fade" role="dialog">
+            <div id={`${this.state.index}`} className="modal fade model-open" role="dialog">
               <div className="modal-dialog">
                 <div className="modal-content">
                   <div className="modal-header">
@@ -112,7 +89,7 @@
                     <h4 className="modal-title">Subject</h4>
                   </div>
                   <div className="modal-body">
-                    <p>{this.statebody}</p>
+                    <p>{this.state.logs[this.state.index].body}</p>
                   </div>
                   <div className="modal-footer">
                     <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
