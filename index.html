@@ -58,9 +58,6 @@
         if(this.state.loading){
           return <div></div>
         }
-        this.state.logs.map((log, i)=> {
-          console.log(log.id)
-        })
         return (
             <div>
               <h1>Event Log</h1>
@@ -74,7 +71,7 @@
             </div>
           );
       }
-  }
+  
   ReactDOM.render(
       <EventLogViewer />,
       document.getElementById('root')
