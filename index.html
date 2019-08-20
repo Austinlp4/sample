@@ -43,7 +43,7 @@
 
       renderData(){
         return this.state.logs.map((log, index) => {
-          const { id, created, user_id, ip, type } = log
+          const { id, created, user_id, ip, type, subject } = log
           return (
             <tr>
               <td>{created}</td>
