@@ -21,7 +21,10 @@
     padding-top: 5px;
     font-size: 2rem;
     top: 0;
+    padding-right: 5%;
+}
+
+.content-container{
     display: flex;
     justify-content: space-between;
-    padding-right: 5%;
 }
